@@ -1,4 +1,4 @@
-// Blocking.ino
+// Demo_Blocking.ino
 // -*- mode: C++ -*-
 //
 // Shows how to use the blocking call runToNewPosition

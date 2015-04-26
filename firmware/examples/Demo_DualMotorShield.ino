@@ -1,4 +1,4 @@
-// DualMotorShield.ino
+// Demo_DualMotorShield.ino
 // -*- mode: C++ -*-
 //
 // Shows how to run 2 simultaneous steppers

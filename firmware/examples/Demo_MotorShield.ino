@@ -1,4 +1,4 @@
-// MotorShield.ino
+// Demo_MotorShield.ino
 // -*- mode: C++ -*-
 //
 // Shows how to use AccelStepper to control a 3-phase motor, such as a HDD spindle motor

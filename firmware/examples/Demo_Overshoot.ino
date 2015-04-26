@@ -1,4 +1,4 @@
-// Overshoot.ino
+// Demo_Overshoot.ino
 // -*- mode: C++ -*-
 //
 // Check overshoot handling

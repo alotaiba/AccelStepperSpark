@@ -1,4 +1,4 @@
-// MultiStepper.ino
+// Demo_MultiStepper.ino
 // -*- mode: C++ -*-
 //
 // Shows how to multiple simultaneous steppers

@@ -1,4 +1,4 @@
-// Random.ino
+// Demo_Random.ino
 // -*- mode: C++ -*-
 //
 // Make a single stepper perform random changes in speed, position and acceleration

@@ -1,4 +1,4 @@
-// ConstantSpeed.ino
+// Demo_ConstantSpeed.ino
 // -*- mode: C++ -*-
 //
 // Shows how to run AccelStepper in the simplest,

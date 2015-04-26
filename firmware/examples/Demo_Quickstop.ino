@@ -1,4 +1,4 @@
-// Quickstop.ino
+// Demo_Quickstop.ino
 // -*- mode: C++ -*-
 //
 // Check stop handling.

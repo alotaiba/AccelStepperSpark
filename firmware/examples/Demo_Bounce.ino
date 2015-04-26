@@ -1,4 +1,4 @@
-// Bounce.ino
+// Demo_Bounce.ino
 // -*- mode: C++ -*-
 //
 // Make a single stepper bounce from one limit to another

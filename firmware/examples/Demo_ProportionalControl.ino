@@ -1,4 +1,4 @@
-// ProportionalControl.ino
+// Demo_ProportionalControl.ino
 // -*- mode: C++ -*-
 //
 // Make a single stepper follow the analog value read from a pot or whatever
