@@ -29,11 +29,15 @@ void AccelStepper::moveTo(long absolute)
 	// compute new n?
     }
 }
-
+float   AccelStepper::maxSpeed()
+{
+    return _maxSpeed;
+}
 void AccelStepper::move(long relative)
 {
     moveTo(_currentPos + relative);
 }
+
 
 // Implements steps according to the current step interval
 // You must call this at least once per step
