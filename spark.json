@@ -1,7 +1,0 @@
-{
-  "name": "AccelStepperSpark",
-  "author": "Mike McCauley <mikem@airspayce.com>",
-  "license": "GPL V2",
-  "version": "1.4.7",
-  "description": "A fork of Mike McCauley's AccelStepper library that's ported to Spark Core. Maintained by Abdulrahman Alotaiba."
-}

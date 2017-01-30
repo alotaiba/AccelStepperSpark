@@ -7,7 +7,7 @@
 // Create a subclass of AccelStepper which controls the motor  pins via the
 // Motor Shield serial-to-parallel interface
 
-#include "AccelStepperSpark/AccelStepperSpark.h"
+#include "AccelStepperSpark.h"
 
 // Pin names for interface to 74HCT595 latch
 // on Adafruit Motor Shield

@@ -6,7 +6,7 @@
 /// \author  Mike McCauley (mikem@airspayce.com)
 // Copyright (C) 2009 Mike McCauley
 
-#include "AccelStepperSpark/AccelStepperSpark.h"
+#include "AccelStepperSpark.h"
 
 AccelStepper stepper; // Defaults to AccelStepper::FULL4WIRE (4 pins) on D2, D3, D4, D5
 

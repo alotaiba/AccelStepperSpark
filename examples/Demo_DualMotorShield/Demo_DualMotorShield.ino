@@ -12,7 +12,7 @@
 //
 // Copyright (C) 2014 Mike McCauley
 
-#include "AccelStepperSpark/AccelStepperSpark.h"
+#include "AccelStepperSpark.h"
 
 // The X Stepper pins
 #define STEPPER1_DIR_PIN D2
