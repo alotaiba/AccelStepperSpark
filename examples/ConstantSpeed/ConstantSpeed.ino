@@ -1,22 +1,23 @@
-// Demo_ConstantSpeed.ino
+// ConstantSpeed.ino
 // -*- mode: C++ -*-
 //
 // Shows how to run AccelStepper in the simplest,
 // fixed speed mode with no accelerations
 /// \author  Mike McCauley (mikem@airspayce.com)
 // Copyright (C) 2009 Mike McCauley
+// $Id: ConstantSpeed.ino,v 1.1 2011/01/05 01:51:01 mikem Exp mikem $
 
-#include "AccelStepperSpark.h"
+#include <AccelStepper.h>
 
-AccelStepper stepper; // Defaults to AccelStepper::FULL4WIRE (4 pins) on D2, D3, D4, D5
+AccelStepper stepper; // Defaults to AccelStepper::FULL4WIRE (4 pins) on 2, 3, 4, 5
 
 void setup()
-{  
+{
    stepper.setMaxSpeed(1000);
-   stepper.setSpeed(50);	
+   stepper.setSpeed(50);
 }
 
 void loop()
-{  
+{
    stepper.runSpeed();
 }

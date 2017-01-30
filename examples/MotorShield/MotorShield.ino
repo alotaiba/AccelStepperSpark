@@ -1,4 +1,4 @@
-// Demo_MotorShield.ino
+// MotorShield.ino
 // -*- mode: C++ -*-
 //
 // Shows how to use AccelStepper to control a 3-phase motor, such as a HDD spindle motor
@@ -7,36 +7,36 @@
 // Create a subclass of AccelStepper which controls the motor  pins via the
 // Motor Shield serial-to-parallel interface
 
-#include "AccelStepperSpark.h"
+#include <AccelStepper.h>
 
 // Pin names for interface to 74HCT595 latch
 // on Adafruit Motor Shield
-#define MOTORLATCH   D0
-#define MOTORCLK     D1
-#define MOTORENABLE  D6
-#define MOTORDATA    D7
+#define MOTORLATCH   A0
+#define MOTORCLK     A1
+#define MOTORENABLE  A2
+#define MOTORDATA    A3
 
 // PWM pins, also used to enable motor outputs
-#define PWM0A        A0
-#define PWM0B        A1
-#define PWM1A        A2
-#define PWM1B        A3
-#define PWM2A        A4
-#define PWM2B        A5
+#define PWM0A        D0
+#define PWM0B        D1
+#define PWM1A        D2
+#define PWM1B        D3
+#define PWM2A        TX
+#define PWM2B        RX
 
 
 // The main purpose of this class is to override setOutputPins to work with Adafruit Motor Shield
 class AFMotorShield : public AccelStepper
 {
   public:
-  AFMotorShield(uint8_t interface = AccelStepper::FULL4WIRE, uint8_t pin1 = D2, uint8_t pin2 = D3, uint8_t pin3 = D4, uint8_t pin4 = D5); 
+  AFMotorShield(uint8_t interface = AccelStepper::FULL4WIRE, uint8_t pin1 = A4, uint8_t pin2 = A5, uint8_t pin3 = A6, uint8_t pin4 = A7);
 
   virtual void   setOutputPins(uint8_t mask);
 };
 
 
 AFMotorShield::AFMotorShield(uint8_t interface, uint8_t pin1, uint8_t pin2, uint8_t pin3, uint8_t pin4)
-    : AccelStepper(interface, pin1, pin2, pin3, pin4) 
+    : AccelStepper(interface, pin1, pin2, pin3, pin4)
 {
     // Enable motor control serial to parallel latch
     pinMode(MOTORLATCH, OUTPUT);
@@ -44,7 +44,7 @@ AFMotorShield::AFMotorShield(uint8_t interface, uint8_t pin1, uint8_t pin2, uint
     pinMode(MOTORDATA, OUTPUT);
     pinMode(MOTORCLK, OUTPUT);
     digitalWrite(MOTORENABLE, LOW);
-    
+
     // enable both H bridges on motor 1
     pinMode(PWM2A, OUTPUT);
     pinMode(PWM2B, OUTPUT);
@@ -57,7 +57,7 @@ AFMotorShield::AFMotorShield(uint8_t interface, uint8_t pin1, uint8_t pin2, uint
 
     setOutputPins(0); // Reset
 };
-    
+
 // Use the AF Motor Shield serial-to-parallel to set the state of the motor pins
 // Caution: the mapping of AccelStepper pins to AF motor outputs is not
 // obvious:
@@ -70,11 +70,11 @@ AFMotorShield::AFMotorShield(uint8_t interface, uint8_t pin1, uint8_t pin2, uint
 void AFMotorShield::setOutputPins(uint8_t mask)
 {
   uint8_t i;
-  
+
   digitalWrite(MOTORLATCH, LOW);
   digitalWrite(MOTORDATA, LOW);
 
-  for (i=0; i<8; i++) 
+  for (i=0; i<8; i++)
   {
     digitalWrite(MOTORCLK, LOW);
 
@@ -82,7 +82,7 @@ void AFMotorShield::setOutputPins(uint8_t mask)
       digitalWrite(MOTORDATA, HIGH);
     else
       digitalWrite(MOTORDATA, LOW);
- 
+
     digitalWrite(MOTORCLK, HIGH);
   }
   digitalWrite(MOTORLATCH, HIGH);
@@ -91,13 +91,13 @@ void AFMotorShield::setOutputPins(uint8_t mask)
 AFMotorShield stepper(AccelStepper::HALF3WIRE, 0, 0, 0, 0); // 3 phase HDD spindle drive
 
 void setup()
-{  
+{
    stepper.setMaxSpeed(500);	// divide by 3 to get rpm
    stepper.setAcceleration(80);
-   stepper.moveTo(10000000);	
+   stepper.moveTo(10000000);
 }
 
 void loop()
-{  
+{
    stepper.run();
 }

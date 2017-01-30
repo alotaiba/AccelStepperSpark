@@ -1,13 +1,14 @@
-// Demo_ProportionalControl.ino
+// ProportionalControl.ino
 // -*- mode: C++ -*-
 //
 // Make a single stepper follow the analog value read from a pot or whatever
-// The stepper will move at a constant speed to each newly set posiiton, 
+// The stepper will move at a constant speed to each newly set posiiton,
 // depending on the value of the pot.
 //
 // Copyright (C) 2012 Mike McCauley
+// $Id: ProportionalControl.ino,v 1.1 2011/01/05 01:51:01 mikem Exp mikem $
 
-#include "AccelStepperSpark.h"
+#include <AccelStepper.h>
 
 // Define a stepper and the pins it will use
 AccelStepper stepper; // Defaults to AccelStepper::FULL4WIRE (4 pins) on D2, D3, D4, D5
@@ -17,7 +18,7 @@ AccelStepper stepper; // Defaults to AccelStepper::FULL4WIRE (4 pins) on D2, D3,
 #define ANALOG_IN A0
 
 void setup()
-{  
+{
   stepper.setMaxSpeed(1000);
 }
 

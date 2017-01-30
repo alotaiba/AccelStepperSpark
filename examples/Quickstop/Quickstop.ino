@@ -1,4 +1,4 @@
-// Demo_Quickstop.ino
+// Quickstop.ino
 // -*- mode: C++ -*-
 //
 // Check stop handling.
@@ -7,25 +7,26 @@
 // current acceleration.
 //
 // Copyright (C) 2012 Mike McCauley
+// $Id:  $
 
-#include "AccelStepperSpark.h"
+#include <AccelStepper.h>
 
 // Define a stepper and the pins it will use
 AccelStepper stepper; // Defaults to AccelStepper::FULL4WIRE (4 pins) on D2, D3, D4, D5
 
 void setup()
-{  
+{
   stepper.setMaxSpeed(150);
   stepper.setAcceleration(100);
 }
 
 void loop()
-{    
+{
   stepper.moveTo(500);
   while (stepper.currentPosition() != 300) // Full speed up to 300
     stepper.run();
   stepper.stop(); // Stop as fast as possible: sets new target
-  stepper.runToPosition(); 
+  stepper.runToPosition();
   // Now stopped after quickstop
 
   // Now go backwards
@@ -33,7 +34,7 @@ void loop()
   while (stepper.currentPosition() != 0) // Full speed basck to 0
     stepper.run();
   stepper.stop(); // Stop as fast as possible: sets new target
-  stepper.runToPosition(); 
+  stepper.runToPosition();
   // Now stopped after quickstop
 
 }
